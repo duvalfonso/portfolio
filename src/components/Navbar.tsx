@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const links = [
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Sobre mí", href: "/#sobre-mi" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 
 export default function Navbar() {
@@ -14,31 +15,31 @@ export default function Navbar() {
   return (
     <header className="fixed left-0 top-0 z-50 w-full border-b border-white/5 bg-[#09090b]/80 backdrop-blur-md">
       <nav className="container flex h-20 items-center justify-between">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="text-xl font-bold tracking-tight"
           onClick={() => setMenuOpen(false)}
         >
           DA<span className="text-violet-400">.</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-zinc-400 transition-colors hover:text-white"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
 
-          <a
-            href="#contacto"
+          <Link
+            href="/#contacto"
             className="rounded-full border border-white/10 px-5 py-2.5 text-sm transition-colors hover:border-violet-400/50 hover:bg-violet-400/10"
           >
             Contacto
-          </a>
+          </Link>
         </div>
 
         <button
@@ -56,15 +57,23 @@ export default function Navbar() {
         <div className="border-t border-white/5 bg-[#09090b] md:hidden">
           <div className="container flex flex-col py-4">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="border-b border-white/5 py-4 text-sm text-zinc-400 transition-colors hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
+
+            <Link
+              href="/#contacto"
+              onClick={() => setMenuOpen(false)}
+              className="mt-4 rounded-full border border-white/10 px-5 py-3 text-center text-sm transition-colors hover:border-violet-400/50 hover:bg-violet-400/10"
+            >
+              Contacto
+            </Link>
           </div>
         </div>
       )}

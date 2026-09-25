@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
+    <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden pt-20">
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-1/3 h-80 w-80 -translate-x-1/2 rounded-full bg-violet-500/10 blur-3xl" />
       </div>

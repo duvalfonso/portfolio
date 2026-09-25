@@ -1,54 +1,48 @@
+import About from "@/components/About";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import Process from "@/components/Process";
 import ProjectGrid from "@/components/ProjectGrid";
+import SectionTitle from "@/components/SectionTitle";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
 
         <section id="proyectos" className="container py-32">
-          <div className="mb-12">
-            <p className="mono text-sm text-violet-400">01 / proyectos</p>
-
-            <div className="mt-4 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div>
-                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                  Proyectos seleccionados
-                </h2>
-
-                <p className="mt-4 max-w-xl text-zinc-400">
-                  Aplicaciones y sistemas desarrollados durante mi proceso de
-                  aprendizaje y práctica.
-                </p>
-              </div>
-
-              <a
-                href="/proyectos"
-                className="text-sm text-zinc-400 transition-colors hover:text-white"
-              >
-                Ver todos →
-              </a>
-            </div>
-          </div>
+          <SectionTitle
+            number="01"
+            eyebrow="proyectos"
+            title="Proyectos seleccionados."
+            description="Aplicaciones y sistemas desarrollados durante mi proceso de aprendizaje y práctica."
+          />
 
           <ProjectGrid />
+
+          <div className="mt-10 text-center">
+            <a
+              href="/proyectos"
+              className="text-sm text-zinc-400 transition-colors hover:text-white"
+            >
+              Ver todos los proyectos →
+            </a>
+          </div>
         </section>
 
-        <section id="sobre-mi" className="container min-h-[50vh] py-32">
-          <p className="mono text-sm text-violet-400">02 / sobre mí</p>
-          <h2 className="mt-4 text-4xl font-bold">
-            Desarrollo pensando en el sistema completo.
-          </h2>
-        </section>
+        <TechStack />
 
-        <section id="contacto" className="container min-h-[50vh] py-32">
-          <p className="mono text-sm text-violet-400">03 / contacto</p>
-          <h2 className="mt-4 text-4xl font-bold">Hablemos.</h2>
-        </section>
+        <Process />
+
+        <About />
+
+        <Contact />
       </main>
+
+      <Footer />
     </>
   );
 }
