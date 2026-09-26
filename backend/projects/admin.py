@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Project, ProjectImage
+from .models import ContactMessage, Project, ProjectImage
 
 
 class ProjectImageInline(admin.TabularInline):
@@ -38,3 +38,22 @@ class ProjectAdmin(admin.ModelAdmin):
     inlines = [
         ProjectImageInline,
     ]
+
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = (
+        "name",
+        "email",
+        "created_at",
+    )
+
+    search_fields = (
+        "name",
+        "email",
+        "message",
+    )
+
+    ordering = ("-created_at",)
+
+    readonly_fields = ("created_at",)

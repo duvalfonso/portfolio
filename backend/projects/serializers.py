@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Project, ProjectImage
+from .models import ContactMessage, Project, ProjectImage
 
 
 class ProjectImageSerializer(serializers.ModelSerializer):
@@ -10,6 +10,22 @@ class ProjectImageSerializer(serializers.ModelSerializer):
             "id",
             "image",
             "order",
+        ]
+
+
+class ContactMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactMessage
+        fields = [
+            "id",
+            "name",
+            "email",
+            "message",
+            "created_at",
+        ]
+        read_only_fields = [
+            "id",
+            "created_at",
         ]
 
 
