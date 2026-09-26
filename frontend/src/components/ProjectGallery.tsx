@@ -19,6 +19,7 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
           src={mainImage}
           alt={`${title} - captura principal`}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 65vw, 50vw"
           priority
           className="object-cover transition-transform duration-500 hover:scale-[1.01]"
         />
@@ -35,6 +36,7 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
                 src={image}
                 alt={`${title} - captura ${index + 2}`}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 65vw, 50vw"
                 className="object-cover transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
