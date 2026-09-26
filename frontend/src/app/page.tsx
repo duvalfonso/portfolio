@@ -6,8 +6,11 @@ import Process from "@/components/Process";
 import ProjectGrid from "@/components/ProjectGrid";
 import SectionTitle from "@/components/SectionTitle";
 import TechStack from "@/components/TechStack";
+import { getProjects } from "@/lib/api";
+import type { Project } from "@/types/project";
 
-export default function Home() {
+export default async function Home() {
+  const projects: Project[] = await getProjects();
   return (
     <>
       <main>
@@ -21,7 +24,7 @@ export default function Home() {
             description="Aplicaciones y sistemas desarrollados durante mi proceso de aprendizaje y práctica."
           />
 
-          <ProjectGrid />
+          <ProjectGrid projects={projects} />
 
           <div className="mt-10 text-center">
             <a
