@@ -1,7 +1,11 @@
-import { projects } from "@/data/projects";
+import type { Project } from "@/types/project";
 import ProjectCard from "./ProjectCard";
 
-export default function ProjectGrid() {
+type ProjectGridProps = {
+  projects: Project[];
+};
+
+export default function ProjectGrid({ projects }: ProjectGridProps) {
   const featuredProjects = projects.filter((project) => project.featured);
 
   return (

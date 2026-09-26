@@ -9,7 +9,6 @@ class Project(models.Model):
 
     category = models.CharField(max_length=100)
     technologies = models.JSONField(default=list)
-    image = models.ImageField(upload_to="projects/")
     featured = models.BooleanField(default=False)
     github = models.URLField(blank=True, null=True)
     demo = models.URLField(blank=True, null=True)
@@ -28,3 +27,21 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.CASCADE,
+        related_name="images",
+    )
+
+    image = models.ImageField(upload_to="projects/")
+
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order", "id"]
+
+    def __str__(self):
+        return f"{self.project.title} - imagen {self.id}"
