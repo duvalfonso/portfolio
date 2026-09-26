@@ -13,11 +13,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv(BASE_DIR / ".env")
 
-
-# ============================================================
-# SECURITY
-# ============================================================
-
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
@@ -31,11 +26,6 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
-
-# ============================================================
-# APPLICATIONS
-# ============================================================
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -48,11 +38,6 @@ INSTALLED_APPS = [
     "storages",
     "projects",
 ]
-
-
-# ============================================================
-# MIDDLEWARE
-# ============================================================
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -88,11 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-
-# ============================================================
-# DATABASE
-# ============================================================
-
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
@@ -117,11 +97,6 @@ else:
         }
     }
 
-
-# ============================================================
-# PASSWORD VALIDATION
-# ============================================================
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
@@ -139,11 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# ============================================================
-# INTERNATIONALIZATION
-# ============================================================
-
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
@@ -153,18 +123,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# ============================================================
-# STATIC FILES
-# ============================================================
-
 STATIC_URL = "static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-
-# ============================================================
-# MEDIA / AWS S3
-# ============================================================
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
@@ -184,11 +146,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
-
-
-# ============================================================
-# CORS / CSRF
-# ============================================================
 
 CORS_ALLOWED_ORIGINS = [
     origin.strip()
@@ -210,27 +167,13 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 
-# ============================================================
-# SECURITY HEADERS
-# ============================================================
-
 SECURE_SSL_REDIRECT = not DEBUG
-
 SESSION_COOKIE_SECURE = not DEBUG
-
 CSRF_COOKIE_SECURE = not DEBUG
-
-
-# ============================================================
-# EMAIL
-# ============================================================
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-
-# ============================================================
-# REST FRAMEWORK
-# ============================================================
 
 REST_FRAMEWORK = {
     "DEFAULT_THROTTLE_RATES": {
