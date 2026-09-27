@@ -27,6 +27,8 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+SECURE_HSTS_SECONDS = 3600
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -77,8 +79,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
-    import dj_database_url
-
     DATABASES = {
         "default": dj_database_url.parse(
             DATABASE_URL,
@@ -126,9 +126,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
