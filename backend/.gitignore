@@ -1,7 +1,23 @@
+# Entorno Virtual
 .venv/
 venv/
+
+# Python
 __pycache__/
+*.py[cod]
 *.pyc
+*$py.class
+
+# Variables de entorno
 .env
+
+# Django
 *.sqlite3
 media/
+
+# Archivos estaticos
+staticfiles/
+
+# IDE
+.vscode/
+.idea/
