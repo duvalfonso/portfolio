@@ -40,7 +40,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/contacto"
+              href="#contacto"
               className="rounded-xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-medium text-zinc-300 backdrop-blur-sm transition-all hover:border-violet-400/30 hover:bg-white/10 hover:text-white active:scale-95"
             >
               Contacto
