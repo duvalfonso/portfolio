@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
 
+const isDevelopment = process.env.NODE_ENV === "development";
+
 const nextConfig: NextConfig = {
   images: {
-    dangerouslyAllowLocalIP: true,
+    ...(isDevelopment && {
+      dangerouslyAllowLocalIP: true,
+    }),
     remotePatterns: [
       {
         protocol: "http",
@@ -15,6 +19,11 @@ const nextConfig: NextConfig = {
         hostname: "127.0.0.1",
         port: "8000",
         pathname: "/media/**",
+      },
+      {
+        protocol: "https",
+        hostname: "duvan-portfolio-media.s3.amazonaws.com",
+        pathname: "/projects/**",
       },
     ],
   },
